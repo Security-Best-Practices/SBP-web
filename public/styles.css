@@ -9,6 +9,7 @@
 
 html {
     font-size: 120%;  /* Increase base font size by 20% */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--color-background);
+    scroll-padding-top: 8rem; /* Increased padding to ensure headings are fully visible */
 }
 
 header {
@@ -24,7 +26,11 @@ header {
     color: var(--color-headings);
     padding: 1rem 0;
     min-height: 4.375rem;
-    border-bottom: var(--color-orange) 0.1875rem solid;
+    border-bottom: var(--color-light-blue) 0.1875rem solid;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -55,6 +61,7 @@ nav ul li a {
     font-size: 1.2rem;
     font-weight: bold;
     padding: 0.5rem 1rem;
+    font-family: 'Genos', sans-serif;
 }
 
 nav ul li a:hover {
@@ -77,11 +84,20 @@ header h1 {
     padding: 1.25rem;
 }
 
+h2[id]::before {
+    content: "";
+    display: block;
+    height: 8rem;
+    margin-top: -8rem;
+    visibility: hidden;
+}
+
 .container h2 {
     color: var(--color-headings);
     font-family: 'Genos', sans-serif;
     font-weight: 700;
-    font-size: 2.4rem;  /* Added explicit size for h2 */
+    font-size: 2.4rem;
+    margin-top: 2rem;
 }
 
 .services {
