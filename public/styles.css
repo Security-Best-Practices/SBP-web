@@ -18,13 +18,49 @@ body {
     padding: 0;
     background-color: var(--color-background);
 }
+
 header {
     background-color: var(--color-background);
     color: var(--color-headings);
-    padding-top: 1.875rem;
+    padding: 1rem 0;
     min-height: 4.375rem;
     border-bottom: var(--color-orange) 0.1875rem solid;
 }
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    max-width: 100%;
+    width: auto;
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: var(--color-dark-blue);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+nav ul li a:hover {
+    color: var(--color-light-blue);
+}
+
 header h1 {
     margin: 0;
     text-align: center;
@@ -32,6 +68,7 @@ header h1 {
     font-weight: 700;
     font-size: 3.6rem;  /* Increased from 3rem */
 }
+
 .container {
     width: 80%;
     max-width: 1440px;
@@ -46,6 +83,7 @@ header h1 {
     font-weight: 700;
     font-size: 2.4rem;  /* Added explicit size for h2 */
 }
+
 .services {
     margin-top: 2.5rem;
 }
@@ -101,6 +139,7 @@ header h1 {
     list-style-type: none;
     padding: 0;
 }
+
 .services li {
     background: var(--color-background);
     margin-bottom: 0.625rem;
@@ -126,6 +165,7 @@ header h1 {
     justify-content: space-around;
     margin-top: 1.25rem;
 }
+
 .image-container img {
     width: 30%;
     border-radius: 0.3125rem;
