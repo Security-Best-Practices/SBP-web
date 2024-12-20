@@ -151,6 +151,13 @@ h2[id]::before {
     line-height: 1.5;
 }
 
+.service-card [data-lucide] {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
 .services ul {
     list-style-type: none;
     padding: 0;
@@ -213,4 +220,22 @@ footer {
 
 .footer-content a:hover {
     color: var(--color-light-blue);
+}
+
+.back-to-top {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.back-to-top:hover {
+    color: #0056b3;
+}
+
+.back-to-top [data-lucide] {
+    width: 1.25rem;
+    height: 1.25rem;
 }

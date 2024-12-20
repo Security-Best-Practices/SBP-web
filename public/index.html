@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Genos:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header>
@@ -36,26 +37,32 @@
             <h2 id="our-services">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
+                    <i data-lucide="shield"></i>
                     <h3>Firewall Support</h3>
                     <p>We offer advanced firewall solutions and ongoing support to safeguard your network perimeter.</p>
                 </div>
                 <div class="service-card">
+                    <i data-lucide="users"></i>
                     <h3>Expert Security Consulting</h3>
                     <p>Our seasoned professionals provide tailored advice to enhance your overall security posture.</p>
                 </div>
                 <div class="service-card">
+                    <i data-lucide="clipboard-check"></i>
                     <h3>Security Audits</h3>
                     <p>Comprehensive assessments to identify vulnerabilities in your network infrastructure.</p>
                 </div>
                 <div class="service-card">
+                    <i data-lucide="check-circle"></i>
                     <h3>Compliance Services</h3>
                     <p>We ensure your systems meet industry standards and regulatory requirements.</p>
                 </div>
                 <div class="service-card">
+                    <i data-lucide="alert-triangle"></i>
                     <h3>Ransomware Response</h3>
                     <p>Rapid incident response and recovery strategies to combat ransomware attacks.</p>
                 </div>
                 <div class="service-card">
+                    <i data-lucide="edit"></i>
                     <h3>Security Policy Reviews</h3>
                     <p>We help develop and refine security policies to align with best practices and your business needs.</p>
                 </div>
@@ -78,10 +85,16 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Security Best Practices, Inc</p>
-                <a href="#" class="back-to-top">Back to Top</a>
+                <p>&copy; 2025 Security Best Practices, Inc. All rights reserved.</p>
+                <a href="#" class="back-to-top">
+                    <i data-lucide="arrow-up-to-line"></i>
+                    Back to Top
+                </a>
             </div>
         </div>
     </footer>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
