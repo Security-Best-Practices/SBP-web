@@ -1,1 +1,5 @@
-*.tmp
+*.tmpblue
+
+# macOS patterns
+.DS_Store
+**/.DS_Store
