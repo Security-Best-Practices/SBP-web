@@ -10,6 +10,7 @@
 html {
     font-size: 120%;  /* Increase base font size by 20% */
     scroll-behavior: smooth;
+    scroll-padding-top: 11rem;
 }
 
 body {
@@ -18,7 +19,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--color-background);
-    scroll-padding-top: 8rem; /* Increased padding to ensure headings are fully visible */
+}
+
+h2[id]::before {
+    content: "";
+    display: block;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 header {
@@ -82,14 +89,6 @@ header h1 {
     margin: auto;
     overflow: hidden;
     padding: 1.25rem;
-}
-
-h2[id]::before {
-    content: "";
-    display: block;
-    height: 8rem;
-    margin-top: -8rem;
-    visibility: hidden;
 }
 
 .container h2 {
@@ -245,4 +244,12 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.about {
+    margin-bottom: 3rem;
+}
+
+.about h2 {
+    margin-top: 2rem;
 }
