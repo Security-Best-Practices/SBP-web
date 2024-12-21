@@ -18,7 +18,11 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: var(--color-background);
+    background: linear-gradient(to bottom, 
+        var(--color-light-blue) 0%,
+        var(--color-background) 50%
+    );
+    min-height: 100vh;
 }
 
 h2[id]::before {
