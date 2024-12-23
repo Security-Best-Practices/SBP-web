@@ -1,4 +1,6 @@
-*.tmpblue
+*.tmp
+*.cache
+.firebase/**/*.cache
 
 # macOS patterns
 .DS_Store
