@@ -274,3 +274,37 @@ h1, h2, h3, h4, h5, h6 {
 .about {
     margin-bottom: var(--spacing-xl);
 }
+
+.client-logos {
+    padding: var(--spacing-lg) 0;
+    overflow: hidden;
+    position: relative;
+    margin: var(--spacing-xl) 0;
+}
+
+.logo-strip {
+    display: flex;
+    gap: var(--spacing-lg);
+    animation: scroll 30s linear infinite;
+}
+
+.logo-strip img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(15%) saturate(1411%) hue-rotate(182deg) brightness(94%) contrast(89%) opacity(0.7);
+    transition: all 0.3s ease;
+}
+
+.logo-strip img:hover {
+    filter: none;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - var(--spacing-lg)));
+    }
+}
