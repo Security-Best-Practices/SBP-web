@@ -1,6 +1,42 @@
-# Readme
+# Security Best Practices, Inc. Website
 
-All about Security Best Practices, Inc new website design.
+A modern, responsive website for Security Best Practices, Inc., a leading provider of network security services. The site showcases the company's services, expertise, and client portfolio through a clean, professional design that emphasizes trust and technical competence.
+
+## Features
+
+- Responsive design optimized for all device sizes
+- Modern gradient background with professional color scheme
+- Animated client logo showcase
+- Service cards with intuitive icons
+- Contact form integration
+- Smooth scrolling navigation
+- Performance-optimized images and animations
+
+## Technology Stack
+
+- HTML5
+- CSS3 (with modern features like CSS Grid, Flexbox, and CSS Variables)
+- JavaScript
+- [Lucide Icons](https://lucide.dev/) for scalable vector icons
+- Google Fonts for typography
+- Mailerlite for contact form integration
+
+## Getting Started
+
+1. Clone the repository
+2. Open `index.html` in your web browser
+3. For development, use a local server to avoid CORS issues with fonts and icons
+
+## Project Structure
+
+```
+public/
+├── img/
+│   ├── logos/     # Client logos
+│   └── ...        # Other images
+├── index.html     # Main page
+└── styles.css     # Stylesheet
+```
 
 ## Creative Brief
 
