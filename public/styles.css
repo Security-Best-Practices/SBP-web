@@ -285,11 +285,12 @@ h1, h2, h3, h4, h5, h6 {
 .logo-strip {
     display: flex;
     gap: var(--spacing-lg);
-    animation: scroll 30s linear infinite;
+    animation: scroll 40s linear infinite;
+    width: max-content;
+    padding: 0 75px;
 }
 
 .logo-strip img {
-    height: 60px;
     width: auto;
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(27%) sepia(15%) saturate(1411%) hue-rotate(182deg) brightness(94%) contrast(89%) opacity(0.7);
