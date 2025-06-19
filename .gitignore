@@ -1,1 +1,7 @@
 *.tmp
+*.cache
+.firebase/
+
+# macOS patterns
+.DS_Store
+**/.DS_Store
