@@ -1,4 +1,4 @@
-{#- MailerLite embedded form 21021120. Keep the ml-* ids/classes and field names: MailerLite's webforms.js depends on them. -#}
+{#- MailerLite embedded form 21021120. Keep the ml-* ids/classes and field names: MailerLite's webforms.js depends on them. Its required-field check only counts text, email and number inputs, so use type="text" (with inputmode) rather than tel/url. -#}
 <div id="mlb2-21021120" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-21021120 contact-card">
   <div class="ml-form-embedWrapper embedForm">
     <div class="ml-form-embedBody row-form">
@@ -22,7 +22,7 @@
           </div>
           <div class="ml-field-group ml-field-phone ml-validate-required">
             <label for="f-phone">Phone <span aria-hidden="true">*</span></label>
-            <input id="f-phone" type="tel" name="fields[phone]" autocomplete="tel" aria-required="true">
+            <input id="f-phone" type="text" inputmode="tel" name="fields[phone]" autocomplete="tel" aria-required="true">
           </div>
           <div class="ml-field-group ml-field-message ml-validate-required span-2">
             <label for="f-message">How can we help? <span aria-hidden="true">*</span></label>
