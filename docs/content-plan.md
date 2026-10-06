@@ -6,7 +6,7 @@ A new article every 2–3 weeks. Each topic maps to a service line and to the se
 |---|---|---|---|---|---|
 | 1 | Oct 2026 | CMMC Phase 2 Starts November 10: What Defense Contractors Need to Do Now *(drafted)* | Compliance | Compliance | CMMC Level 2, C3PAO assessment, NIST SP 800-171 |
 | 2 | Oct 2026 | Your Firewall Is the Front Door: Lessons from 2026's Edge-Device Attacks *(drafted)* | Network Security | Network & firewall | firewall vulnerability, firewall hardening, edge device security |
-| 3 | Nov 2026 | AI Agents Are Joining Your Workforce. Who's Securing Them? | AI Security | vCISO & risk | AI security, agentic AI risk, AI governance policy |
+| 3 | Nov 2026 | AI Agents Are Joining Your Workforce. Who's Securing Them? *(drafted)* | AI Security | vCISO & risk | AI security, agentic AI risk, AI governance policy |
 | 4 | Nov 2026 | Ransomware in 2026: Why Backups Alone Won't Save You | Incident Response | IR & testing | ransomware protection, ransomware response plan, immutable backups |
 | 5 | Dec 2026 | The HIPAA Security Rule Overhaul Slipped to 2027. Here's Why You Shouldn't Wait | Compliance | Compliance | HIPAA Security Rule update, HIPAA risk analysis, HIPAA compliance |
 | 6 | Dec 2026 | Running a Tabletop Exercise Your Executives Will Actually Take Seriously | Incident Response | IR & testing | tabletop exercise, incident response plan |
