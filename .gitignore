@@ -5,3 +5,6 @@
 # macOS patterns
 .DS_Store
 **/.DS_Store
+# Build
+node_modules/
+_site/

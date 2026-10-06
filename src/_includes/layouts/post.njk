@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+ogType: article
+bodyClass: post-page
+---
+<article class="post">
+  <header class="post-hero">
+    <div class="container narrow">
+      <a href="/insights/" class="back-link">← All insights</a>
+      <p class="post-meta"><span class="tag">{{ category }}</span><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time><span>{{ content | readingTime }}</span></p>
+      <h1>{{ title }}</h1>
+      <p class="lede">{{ description }}</p>
+      <p class="byline">By {{ author or site.founder }}</p>
+    </div>
+  </header>
+  <div class="container narrow prose">
+    {{ content | safe }}
+  </div>
+  <aside class="container narrow post-cta">
+    <h2>Need help with this?</h2>
+    <p>Talk to us about where your organization stands and what to do next.</p>
+    <a href="/#contact" class="btn btn-primary">Get in touch <svg class="icon"><use href="#i-arrow"/></svg></a>
+  </aside>
+</article>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ title | dump | safe }},
+  "description": {{ description | dump | safe }},
+  "datePublished": "{{ page.date | isoDate }}",
+  "dateModified": "{{ (updated or page.date) | isoDate }}",
+  "author": { "@type": "Person", "name": {{ (author or site.founder) | dump | safe }} },
+  "publisher": { "@type": "Organization", "name": "{{ site.name }}", "logo": { "@type": "ImageObject", "url": "{{ site.ogImage | absoluteUrl(site.url) }}" } },
+  "mainEntityOfPage": "{{ page.url | absoluteUrl(site.url) }}",
+  "keywords": {{ (tags or []) | join(", ") | dump | safe }}
+}
+</script>

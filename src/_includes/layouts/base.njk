@@ -1,0 +1,44 @@
+{%- set pageTitle = (title + " | " + site.shortName) if title else (site.shortName + " | " + site.title) -%}
+{%- set pageDescription = description or site.description -%}
+{%- set canonical = page.url | absoluteUrl(site.url) -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta name="theme-color" content="#0b1726">
+
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:title" content="{{ title or site.shortName + ' | ' + site.title }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ site.ogImage | absoluteUrl(site.url) }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="alternate" type="application/rss+xml" title="{{ site.shortName }} Insights" href="/feed.xml">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  {% block head %}{% endblock %}
+</head>
+<body class="{{ bodyClass }}">
+  {% include "partials/icons.njk" %}
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "partials/header.njk" %}
+  <main id="main">
+    {{ content | safe }}
+  </main>
+  {% include "partials/footer.njk" %}
+  <script src="/js/site.js" defer></script>
+</body>
+</html>
