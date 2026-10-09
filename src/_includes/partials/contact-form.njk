@@ -1,58 +1,72 @@
-{#- MailerLite embedded form 21021120. Keep the ml-* ids/classes and field names: MailerLite's webforms.js depends on them. Its required-field check only counts text, email and number inputs, so use type="text" (with inputmode) rather than tel/url. -#}
-<div id="mlb2-21021120" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-21021120 contact-card">
-  <div class="ml-form-embedWrapper embedForm">
-    <div class="ml-form-embedBody row-form">
-      <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1244974/forms/141485334197175695/subscribe" data-code="" method="post" target="_blank">
-        <div class="form-grid">
-          <div class="ml-field-group ml-field-name">
-            <label for="f-name">First name</label>
-            <input id="f-name" type="text" name="fields[name]" autocomplete="given-name">
-          </div>
-          <div class="ml-field-group ml-field-last_name">
-            <label for="f-last">Last name</label>
-            <input id="f-last" type="text" name="fields[last_name]" autocomplete="family-name">
-          </div>
-          <div class="ml-field-group ml-field-company span-2">
-            <label for="f-company">Company</label>
-            <input id="f-company" type="text" name="fields[company]" autocomplete="organization">
-          </div>
-          <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-            <label for="f-email">Work email <span aria-hidden="true">*</span></label>
-            <input id="f-email" type="email" name="fields[email]" autocomplete="email" aria-required="true">
-          </div>
-          <div class="ml-field-group ml-field-phone ml-validate-required">
-            <label for="f-phone">Phone <span aria-hidden="true">*</span></label>
-            <input id="f-phone" type="text" inputmode="tel" name="fields[phone]" autocomplete="tel" aria-required="true">
-          </div>
-          <div class="ml-field-group ml-field-message ml-validate-required span-2">
-            <label for="f-message">How can we help? <span aria-hidden="true">*</span></label>
-            <textarea id="f-message" name="fields[message]" maxlength="255" rows="4" aria-required="true"></textarea>
-          </div>
-        </div>
-        <div class="ml-form-recaptcha ml-validate-required">
-          <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
-        </div>
-        <input type="hidden" name="ml-submit" value="1">
-        <div class="ml-form-embedSubmit">
-          <button type="submit" class="btn btn-primary btn-block primary">Send message</button>
-          <button disabled="disabled" style="display: none;" type="button" class="btn btn-primary btn-block loading">Sending…</button>
-        </div>
-        <input type="hidden" name="anticsrf" value="true">
-      </form>
+{#- Formspree form xrbgnwve: each submission is emailed to the account owner. The script submits with fetch so visitors stay on the page; without JS the form posts normally and Formspree shows its own thank-you page. -#}
+<div class="contact-card">
+  <form id="contact-form" action="https://formspree.io/f/xrbgnwve" method="POST">
+    <div class="form-grid">
+      <div class="field-group">
+        <label for="f-name">First name</label>
+        <input id="f-name" type="text" name="first_name" autocomplete="given-name">
+      </div>
+      <div class="field-group">
+        <label for="f-last">Last name</label>
+        <input id="f-last" type="text" name="last_name" autocomplete="family-name">
+      </div>
+      <div class="field-group span-2">
+        <label for="f-company">Company</label>
+        <input id="f-company" type="text" name="company" autocomplete="organization">
+      </div>
+      <div class="field-group">
+        <label for="f-email">Work email <span aria-hidden="true">*</span></label>
+        <input id="f-email" type="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field-group">
+        <label for="f-phone">Phone <span aria-hidden="true">*</span></label>
+        <input id="f-phone" type="tel" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="field-group span-2">
+        <label for="f-message">How can we help? <span aria-hidden="true">*</span></label>
+        <textarea id="f-message" name="message" maxlength="2000" rows="4" required></textarea>
+      </div>
     </div>
-    <div class="ml-form-successBody row-success" style="display: none">
-      <h3>Thank you!</h3>
-      <p>Your message has been sent. We'll be in touch shortly.</p>
-    </div>
+    {#- Honeypot: Formspree silently drops submissions that fill this in. -#}
+    <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="hidden" name="_subject" value="New website inquiry">
+    <p class="form-error" role="alert" hidden></p>
+    <button type="submit" class="btn btn-primary btn-block">Send message</button>
+  </form>
+  <div class="form-success" role="status" hidden>
+    <h3>Thank you!</h3>
+    <p>Your message has been sent. We'll be in touch shortly.</p>
   </div>
 </div>
 <script>
-  function ml_webform_success_21021120() {
-    var $ = ml_jQuery || jQuery;
-    $('.ml-subscribe-form-21021120 .row-success').show();
-    $('.ml-subscribe-form-21021120 .row-form').hide();
-  }
+  (function () {
+    var form = document.getElementById("contact-form");
+    var error = form.querySelector(".form-error");
+    var button = form.querySelector("button[type=submit]");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      error.hidden = true;
+      button.disabled = true;
+      button.textContent = "Sending…";
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (res) {
+          if (res.ok) {
+            form.hidden = true;
+            form.nextElementSibling.hidden = false;
+            return;
+          }
+          return res.json().then(function (data) {
+            throw new Error(data.errors ? data.errors.map(function (x) { return x.message; }).join(" ") : "");
+          });
+        })
+        .catch(function (err) {
+          error.textContent = (err && err.message) || "Sorry, your message couldn't be sent. Please try again in a moment.";
+          error.hidden = false;
+        })
+        .finally(function () {
+          button.disabled = false;
+          button.textContent = "Send message";
+        });
+    });
+  })();
 </script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" defer></script>
-<script>fetch("https://assets.mailerlite.com/jsonp/1244974/forms/141485334197175695/takel")</script>
