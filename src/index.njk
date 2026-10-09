@@ -1,0 +1,223 @@
+---
+layout: layouts/base.njk
+bodyClass: home
+---
+<section class="hero">
+  <svg class="hero-art" viewBox="0 0 800 600" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="glow" cx="70%" cy="40%" r="60%">
+        <stop offset="0" stop-color="#0f75bc" stop-opacity=".45"/>
+        <stop offset="1" stop-color="#0f75bc" stop-opacity="0"/>
+      </radialGradient>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M40 0H0v40" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="600" fill="url(#grid)"/>
+    <rect width="800" height="600" fill="url(#glow)"/>
+    <g class="mesh" fill="none" stroke="#5fa8dc" stroke-opacity=".35" stroke-width="1">
+      <path d="M470 120 560 180 660 140 720 230 640 300 560 180M560 180 520 290 640 300 700 400 600 450 520 290 430 360 470 470 600 450M430 360 380 250 470 120M380 250 520 290M660 140 760 110M720 230 790 300 700 400"/>
+    </g>
+    <g class="nodes" fill="#9fd0f2">
+      <circle cx="470" cy="120" r="3"/><circle cx="560" cy="180" r="4"/><circle cx="660" cy="140" r="3"/>
+      <circle cx="720" cy="230" r="3"/><circle cx="640" cy="300" r="4"/><circle cx="520" cy="290" r="3"/>
+      <circle cx="700" cy="400" r="3"/><circle cx="600" cy="450" r="4"/><circle cx="430" cy="360" r="3"/>
+      <circle cx="470" cy="470" r="3"/><circle cx="380" cy="250" r="3"/><circle cx="760" cy="110" r="2"/><circle cx="790" cy="300" r="2"/>
+    </g>
+    <circle class="pulse" cx="640" cy="300" r="4" fill="#df764a"/>
+    <path class="shield" d="M640 230 590 250v40c0 32 21 58 50 68 29-10 50-36 50-68v-40z" fill="none" stroke="#df764a" stroke-width="2" stroke-opacity=".8"/>
+  </svg>
+  <div class="container hero-inner">
+    <p class="eyebrow">Cybersecurity &amp; compliance consulting</p>
+    <h1>Security that holds up to attackers, auditors and assessors.</h1>
+    <p class="lede">Since 2002, Security Best Practices has helped organizations harden their networks, meet CMMC, SOC&nbsp;2, HIPAA and PCI&nbsp;DSS requirements, and respond decisively when incidents happen. You work directly with a senior, CISSP-certified consultant.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Schedule a consultation <svg class="icon"><use href="#i-arrow"/></svg></a>
+      <a href="#services" class="btn btn-ghost">Explore services</a>
+    </div>
+    <ul class="hero-facts">
+      <li><strong>{{ site.founded }}</strong><span>Founded</span></li>
+      <li><strong>CISSP</strong><span>Certified leadership</span></li>
+      <li><strong>Finance · Healthcare · Legal</strong><span>Regulated industries</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="clients" aria-label="Selected clients">
+  <div class="container">
+    <p class="clients-label">Trusted by organizations including</p>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      {%- set logos = [["abn_amro","ABN AMRO"],["bentley_pub","Bentley Publishers"],["bnhc","BNHC"],["dunkin","Dunkin'"],["fragomen","Fragomen"],["gv20","GV20 Therapeutics"],["handelsbanken","Handelsbanken"],["ndcp","NDCP"],["wagner","Wagner"]] -%}
+      {%- for pass in [1, 2] %}
+      {%- for l in logos %}
+      <img src="/img/logos/{{ l[0] }}.png" alt="{{ l[1] if pass == 1 else '' }}" loading="lazy" height="40"{% if pass == 2 %} aria-hidden="true"{% endif %}>
+      {%- endfor %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">Services</p>
+      <h2>Cybersecurity services for organizations that can't afford to get it wrong</h2>
+      <p>Four practice areas, delivered by the same experienced team from first assessment through remediation and ongoing support.</p>
+    </header>
+    <div class="service-grid">
+      <article class="service">
+        <svg class="service-icon"><use href="#i-badge"/></svg>
+        <h3>Compliance &amp; Audit Readiness</h3>
+        <p>Gap assessments, remediation roadmaps and evidence preparation so you pass your audit or certification the first time.</p>
+        <ul class="checks">
+          <li>CMMC 2.0 Level 1 &amp; Level 2 readiness</li>
+          <li>NIST SP 800-171 &amp; SPRS scoring</li>
+          <li>SOC 2 Type I &amp; Type II preparation</li>
+          <li>HIPAA Security Rule risk analysis</li>
+          <li>PCI DSS 4.0 &amp; ISO/IEC 27001 readiness</li>
+        </ul>
+      </article>
+      <article class="service">
+        <svg class="service-icon"><use href="#i-network"/></svg>
+        <h3>Network &amp; Firewall Security</h3>
+        <p>Design, hardening and day-to-day support for the infrastructure that keeps attackers out and your users productive.</p>
+        <ul class="checks">
+          <li>Next-generation firewall design &amp; support</li>
+          <li>Zero Trust architecture &amp; ZTNA</li>
+          <li>SASE &amp; secure remote access (VPN)</li>
+          <li>Network segmentation &amp; microsegmentation</li>
+          <li>Firewall rule reviews &amp; configuration audits</li>
+        </ul>
+      </article>
+      <article class="service">
+        <svg class="service-icon"><use href="#i-compass"/></svg>
+        <h3>vCISO &amp; Risk Management</h3>
+        <p>Senior security leadership on a fractional basis: strategy, policy and governance without a full-time executive hire.</p>
+        <ul class="checks">
+          <li>Virtual CISO / fractional CISO</li>
+          <li>Cybersecurity risk assessments</li>
+          <li>Security policy development &amp; review</li>
+          <li>Third-party &amp; vendor risk management</li>
+          <li>Board &amp; executive reporting</li>
+        </ul>
+      </article>
+      <article class="service">
+        <svg class="service-icon"><use href="#i-siren"/></svg>
+        <h3>Incident Response &amp; Testing</h3>
+        <p>Find the weaknesses before attackers do, and be ready with a tested plan if the worst happens.</p>
+        <ul class="checks">
+          <li>Ransomware readiness &amp; response</li>
+          <li>Incident response planning</li>
+          <li>Tabletop exercises</li>
+          <li>Vulnerability assessments</li>
+          <li>Penetration testing</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="compliance" class="section section-dark">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">Compliance frameworks</p>
+      <h2>Current standards, practical guidance</h2>
+      <p>Regulations and frameworks keep changing. We track the latest versions and translate them into controls your team can actually operate.</p>
+    </header>
+    <div class="framework-grid">
+      <div class="framework"><h3>CMMC 2.0</h3><p>Cybersecurity Maturity Model Certification for Department of Defense contractors handling FCI and CUI.</p></div>
+      <div class="framework"><h3>NIST CSF 2.0</h3><p>The updated Cybersecurity Framework, including the new Govern function for risk ownership and oversight.</p></div>
+      <div class="framework"><h3>NIST SP 800-171</h3><p>The 110 security requirements for protecting Controlled Unclassified Information in non-federal systems.</p></div>
+      <div class="framework"><h3>SOC 2</h3><p>AICPA Trust Services Criteria for service organizations, covering both Type I and Type II reports.</p></div>
+      <div class="framework"><h3>HIPAA</h3><p>Security Rule risk analysis and safeguards for covered entities and business associates handling ePHI.</p></div>
+      <div class="framework"><h3>PCI DSS 4.0</h3><p>Payment Card Industry Data Security Standard v4.0.1, including the now-mandatory future-dated requirements.</p></div>
+      <div class="framework"><h3>ISO/IEC 27001:2022</h3><p>The international standard for an information security management system (ISMS) and its updated Annex A controls.</p></div>
+      <div class="framework"><h3>SEC Cyber Disclosure</h3><p>Governance, risk management and material-incident disclosure requirements for public companies.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">How we work</p>
+      <h2>A clear path from assessment to assurance</h2>
+    </header>
+    <ol class="steps">
+      <li><span class="step-num">01</span><h3>Assess</h3><p>Understand your environment, obligations and risk, and measure where you stand today.</p></li>
+      <li><span class="step-num">02</span><h3>Prioritize</h3><p>Deliver a practical roadmap ranked by risk reduction and audit impact, not vendor wish lists.</p></li>
+      <li><span class="step-num">03</span><h3>Remediate</h3><p>Implement controls, configurations and policies hands-on, alongside your team.</p></li>
+      <li><span class="step-num">04</span><h3>Validate &amp; sustain</h3><p>Test, document evidence and keep you compliant as threats and standards evolve.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="about" class="section section-tint">
+  <div class="container about">
+    <div>
+      <p class="eyebrow">About us</p>
+      <h2>Senior expertise. Direct access. No hand-offs.</h2>
+      <p>Security Best Practices, Inc. was founded in {{ site.founded }} by Keith W. Salustro, CISSP®, a senior network security consultant with more than 25 years of specialized experience. A graduate of Brown University's engineering program, Keith has designed and supported security infrastructure for global banks, healthcare organizations, law firms and growing businesses, conducted security and compliance assessments, and spoken widely on information security.</p>
+      <p>Clients choose us because they work directly with an experienced practitioner who has seen what works in the real world and who explains risk in plain business terms.</p>
+    </div>
+    <ul class="about-points">
+      <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Vendor-neutral advice.</strong> We recommend what fits your risk and budget, not what earns a commission.</span></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Hands-on delivery.</strong> We don't just write the report. We help implement the fixes.</span></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Regulated-industry experience.</strong> Finance, healthcare, legal and life sciences.</span></li>
+      <li><svg class="icon"><use href="#i-check"/></svg><span><strong>Right-sized engagements.</strong> From a single assessment to an ongoing vCISO partnership.</span></li>
+    </ul>
+  </div>
+</section>
+
+{%- set latest = (collections.posts or []).slice(0, 3) %}
+{%- if latest.length %}
+<section class="section">
+  <div class="container">
+    <header class="section-head section-head-row">
+      <div>
+        <p class="eyebrow">Insights</p>
+        <h2>Latest from our team</h2>
+      </div>
+      <a href="/insights/" class="link-arrow">All insights <svg class="icon"><use href="#i-arrow"/></svg></a>
+    </header>
+    <div class="post-grid">
+      {%- for post in latest %}
+      {% include "partials/post-card.njk" %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section id="contact" class="section section-dark">
+  <div class="container contact">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk about your security goals</h2>
+      <p>Whether you're facing an upcoming audit, a CMMC deadline, a firewall project or a security incident, tell us what's going on. We'll respond within one business day.</p>
+      <ul class="contact-list">
+        <li><svg class="icon"><use href="#i-check"/></svg>Free initial consultation</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Confidential, no obligation</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Clear scope and fixed-fee options</li>
+      </ul>
+    </div>
+    {% include "partials/contact-form.njk" %}
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "{{ site.name }}",
+  "url": "{{ site.url }}",
+  "logo": "{{ site.ogImage | absoluteUrl(site.url) }}",
+  "description": "{{ site.description }}",
+  "foundingDate": "{{ site.founded }}",
+  "founder": { "@type": "Person", "name": "Keith W. Salustro", "hasCredential": "CISSP" },
+  "knowsAbout": ["Cybersecurity consulting", "CMMC 2.0", "NIST CSF 2.0", "NIST SP 800-171", "SOC 2", "HIPAA", "PCI DSS 4.0", "ISO 27001", "Virtual CISO", "Firewall security", "Zero Trust", "SASE", "Incident response", "Ransomware response", "Penetration testing", "Vulnerability assessment"],
+  "areaServed": "US"
+}
+</script>

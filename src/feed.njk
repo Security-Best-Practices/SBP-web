@@ -1,0 +1,23 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.shortName }} Insights</title>
+    <link>{{ site.url }}/insights/</link>
+    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Cybersecurity and compliance insights from {{ site.name }}</description>
+    <language>en-us</language>
+    {%- for post in collections.posts %}
+    <item>
+      <title>{{ post.data.title }}</title>
+      <link>{{ post.url | absoluteUrl(site.url) }}</link>
+      <guid>{{ post.url | absoluteUrl(site.url) }}</guid>
+      <pubDate>{{ post.date | rfc822Date }}</pubDate>
+      <description>{{ post.data.description }}</description>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

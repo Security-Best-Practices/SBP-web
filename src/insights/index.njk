@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+title: Insights
+description: Practical cybersecurity and compliance insights on CMMC, NIST, SOC 2, HIPAA, PCI DSS, ransomware, firewalls and Zero Trust from Security Best Practices, Inc.
+permalink: /insights/
+---
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Insights</p>
+    <h1>Cybersecurity &amp; compliance insights</h1>
+    <p class="lede">Practical analysis of the threats, regulations and technologies shaping security programs, written for business and IT leaders.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    {%- if collections.posts and collections.posts.length %}
+    <div class="post-grid">
+      {%- for post in collections.posts %}
+      {% include "partials/post-card.njk" %}
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <p class="empty">New articles are on the way. <a href="/feed.xml">Subscribe via RSS</a> or <a href="/#contact">get in touch</a> in the meantime.</p>
+    {%- endif %}
+  </div>
+</section>
