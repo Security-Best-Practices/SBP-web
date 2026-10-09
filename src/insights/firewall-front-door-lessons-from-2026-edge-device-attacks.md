@@ -41,7 +41,7 @@ Two patterns stand out. First, attackers often exploit these flaws for weeks bef
 3. **Inventory every edge device.** That includes firewalls, VPN concentrators, load balancers and remote access gateways, with model, firmware version and end-of-support date. You can't patch what you don't know about.
 4. **Treat actively exploited edge bugs as emergencies.** Subscribe to vendor advisories and the [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). Have a pre-approved process to patch or mitigate internet-facing devices within 72 hours.
 5. **Hunt before you patch.** When a zero-day drops, check logs and indicators of compromise first and preserve evidence. Patching a device that's already compromised doesn't remove the attacker.
-6. **Turn off what you don't use.** Disable legacy protocols (IKEv1, old TLS versions), unused VPN portals and services. Every enabled feature is attack surface.
+6. **Turn off what you don't use.** Disable legacy protocols (IKEv1, old TLS versions), unused VPN portals and services, disable and delete old accounts. Every enabled feature is extra attack surface.
 7. **Send firewall logs somewhere attackers can't erase them.** Forward admin logins, configuration changes and VPN authentications to a SIEM or log service, and alert on logins from unusual locations.
 8. **Assume the edge will fail, and protect what's behind it.** Segment and isolate backup infrastructure, keep immutable or offline copies, and make sure domain admin credentials are never used from the firewall's network segment.
 9. **Review firewall rules regularly.** Old "temporary" rules and overly broad any-any rules quietly undo good architecture.

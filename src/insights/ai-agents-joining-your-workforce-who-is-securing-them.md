@@ -19,7 +19,7 @@ A chatbot produces text, and a human decides what to do with it. An agent decide
 2. **Exposure to untrusted content:** inbound email, web pages, uploaded documents, tickets submitted by customers.
 3. **The ability to take action or communicate externally:** sending messages, calling APIs, writing files, making web requests.
 
-Security researcher Simon Willison calls this combination the "lethal trifecta." When all three are present, an attacker who can get text in front of the agent may be able to make it leak data or take actions on their behalf. The core technique is **prompt injection**: instructions hidden inside content the agent reads, which the model can't reliably tell apart from legitimate instructions.
+Security researcher Simon Willison calls this combination the "[lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)." When all three are present, an attacker who can get text in front of the agent may be able to make it leak data or take actions on their behalf. The core technique is **prompt injection**: instructions hidden inside content the agent reads, which the model can't reliably tell apart from legitimate instructions.
 
 ## This is already happening
 
