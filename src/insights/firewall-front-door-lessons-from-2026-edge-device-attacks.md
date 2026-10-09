@@ -4,7 +4,6 @@ description: "From 600+ firewalls breached with nothing more than weak passwords
 date: 2026-10-20
 category: Network Security
 tags: [firewall security, VPN, edge devices, ransomware, firewall hardening]
-draft: true
 ---
 
 Firewalls and VPN gateways exist to keep attackers out. In 2026, they have repeatedly been the way attackers got *in*.

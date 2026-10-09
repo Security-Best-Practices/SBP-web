@@ -4,7 +4,6 @@ description: "AI agents don't just answer questions. They read your email, call 
 date: 2026-11-03
 category: AI Security
 tags: [AI security, agentic AI, prompt injection, AI governance, OWASP]
-draft: true
 ---
 
 A year ago, most organizations' exposure to generative AI was a chatbot that answered questions. Today, AI **agents** are booking meetings, triaging support tickets, summarizing inboxes, writing and running code, and updating records in business systems, often with the same access as the employee who set them up.

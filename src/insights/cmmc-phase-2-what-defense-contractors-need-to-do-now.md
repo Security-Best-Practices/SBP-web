@@ -4,7 +4,6 @@ description: "On November 10, 2026, third-party CMMC Level 2 certification becom
 date: 2026-10-06
 category: Compliance
 tags: [CMMC, NIST SP 800-171, DFARS, CUI, defense contractors]
-draft: true
 ---
 
 For most of the past year, defense contractors could satisfy the Cybersecurity Maturity Model Certification (CMMC) program with a self-assessment. That changes on **November 10, 2026**, when CMMC enters Phase 2 and independent, third-party Level 2 certification starts appearing as a condition of contract award.
