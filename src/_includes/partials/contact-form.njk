@@ -30,6 +30,8 @@
     {#- Honeypot: Formspree silently drops submissions that fill this in. -#}
     <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
     <input type="hidden" name="_subject" value="New website inquiry">
+    {#- Cloudflare Turnstile: adds a cf-turnstile-response field that Formspree verifies with the secret key stored in its settings. -#}
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAFScG51gEDmPpCKu" data-size="flexible"></div>
     <p class="form-error" role="alert" hidden></p>
     <button type="submit" class="btn btn-primary btn-block">Send message</button>
   </form>
@@ -38,6 +40,7 @@
     <p>Your message has been sent. We'll be in touch shortly.</p>
   </div>
 </div>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
   (function () {
     var form = document.getElementById("contact-form");
@@ -62,6 +65,8 @@
         .catch(function (err) {
           error.textContent = (err && err.message) || "Sorry, your message couldn't be sent. Please try again in a moment.";
           error.hidden = false;
+          // Turnstile tokens are single-use, so get a fresh one before a retry.
+          if (window.turnstile) window.turnstile.reset();
         })
         .finally(function () {
           button.disabled = false;
