@@ -1,6 +1,7 @@
 const showDrafts = process.env.ELEVENTY_DRAFTS === "true";
 
 export default function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/img": "img" });
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
